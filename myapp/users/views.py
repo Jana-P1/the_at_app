@@ -3,7 +3,7 @@ from operator import methodcaller
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from myapp import db
-from myapp.models import User
+from myapp.models import User, SuccessStory
 from myapp.users.forms import RegistrationForm, LoginForm, UpdateUserForm
 
 users = Blueprint('users', __name__) # dont forget to register this in __init__.py 
@@ -69,3 +69,11 @@ def account():
         form.email.data = current_user.email
 
     return render_template('account.html', form=form)
+
+@users.route('/<username>')
+def user_stories(username):
+    page = request.args.get('page', 1, type=int)
+    user = User.query.filter_by(username=username).first_or_404()
+    success_stories = SuccessStory.query.filter_by(author=user).order_by(SuccessStory.date.desc()).paginate(page=page, per_page=8)
+    return render_template('user_success_stories.html', success_stories=success_stories, user=user) 
+
