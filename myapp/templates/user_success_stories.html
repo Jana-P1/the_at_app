@@ -1,6 +1,44 @@
 {% extends 'base.html' %}
 {% block content %}
+  <div class="container">
+    <div class="jumbotron">
+      <div align="center">
+        <h1>{{user.username}}, you're already there!</h1>
+      </div>
+    </div>
+    {% for story in success_stories.items %}
+    <h2>
+      <a href="{{url_for('success_stories.success_story', success_story_id=story.id)}}">{{story.title}}</a>
+    </h2>
+    Written By: <a href="{{url_for('users.user_stories', username=story.author.username)}}">{{story.author.username}}</a>
 
-  
+    <p class="text-muted">
+      Published On: {{story.date.strftime("%y-%m-%d")}}
+    </p>
+    <br>
+    <p>{{story.story}}</p>
+    <br>
+    {% endfor %}
+  </div>
+
+  <nav aria-label="Page Navigation example">
+    <ul class="pagination justify-content-center">
+
+      {% for page_num in blog_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if blog_posts.page == page_num %}
+      <li class="page-item disabled">
+        <a class="page-link" href="{{url_for('users.user_posts', username=user.username, page=page_num)}}">{{ page_num
+        }}</a>
+      </li>
+      {% else %}
+      <li class="page-item">
+        <a class="page-link" href="{{url_for('users.user_posts', username=user.username, page=page_num)}}">{{ page_num
+        }}</a>
+      </li>
+      {% endif %}
+      {% endfor %}
+  </ul>
+</nav>
+
 
 {% endblock %}
