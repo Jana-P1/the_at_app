@@ -9,13 +9,16 @@ success_stories = Blueprint('blog_posts', __name__)
 # Creates Success Story
 @success_stories.route('/create', methods=['GET', 'POST'])
 @login_required
-def create_story():
+def create():
   form = SuccessStoryForm()
   if form.validate_on_submit():
-    success_story= SuccessStory(title=form.title.data, text=form.text.data, user_id=current_user.id)
+    success_story = SuccessStory(
+      title=form.title.data, 
+      story=form.story.data, user_id=current_user.id
+    )
     db.session.add(success_story)
     db.session.commit()
-    flash('Success Story Created!')
+    flash('Your success story was created!')
     print('Success story was successfully added')
     return redirect(url_for('core.index'))
   return render_template('create_story.html', form=form)
