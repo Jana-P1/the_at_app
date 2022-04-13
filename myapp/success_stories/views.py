@@ -4,7 +4,7 @@ from myapp import db, success_stories
 from myapp.models import SuccessStory
 from myapp.success_stories.forms import SuccessStoryForm
 
-success_stories = Blueprint('blog_posts', __name__)
+success_stories = Blueprint('success_stories', __name__)
 
 # Creates Success Story
 @success_stories.route('/create', methods=['GET', 'POST'])
