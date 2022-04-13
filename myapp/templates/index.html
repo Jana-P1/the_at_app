@@ -1,7 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="jumbotron">
-        <h1>Welcome to the AT app</h1>
+        <h1>Already There</h1>
+    </div>
+    
+    <div class="story-container">
+        {% for story in success_stories.items %}
+        <div>
+            <h1>{{story.title}}</h1>
+            <h2>Author: {{story.user_id}}</h2>
+            <h3>Created on: {{story.date.strftime('%Y - %m')}}</h3>
+            <a href="{{url_for('success_stories.success_story', success_story_id=story.id)}}">Read this story</a>
+            
+        </div>
+        {% endfor %}
     </div>
    
 {% endblock %}
