@@ -8,8 +8,9 @@
   <p>{{story.story}}</p>
   {% if story.author == current_user %}
   <div>
-    
+    <form action="{{url_for('success_stories.update', success_story_id=story.id)}}">
       <button>Update</button>
+    </form>
     
     
       <button>Delete</button>

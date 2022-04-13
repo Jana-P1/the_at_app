@@ -31,5 +31,30 @@ def success_story(success_story_id):
     'success_story.html', title=success_story.title, date=success_story.date, story=success_story
   )
 
+# Update a success story
+@success_stories.route('/<int:success_story_id>/update', methods=['GET', 'POST'])
+@login_required
+def update(success_story_id):
+  success_story = SuccessStory.query.get_or_404(success_story_id)
+  
+  if success_story.author != current_user:
+    abort(403)
+
+  form = SuccessStoryForm()
+
+  if form.validate_on_submit():
+    success_story.title = form.title.data
+    success_story.story = form.story.data
+    db.session.commit()
+    flash("Success Story Updated")
+    return redirect(url_for('success_stories.success_story', success_story_id=success_story.id))
+  
+  elif request.method == 'GET':
+    form.title.data = success_story.title
+    form.story.data = success_story.story
+  
+  return render_template('create_story.html', title='Updating', form=form)
+
+
 
 
