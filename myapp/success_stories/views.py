@@ -55,6 +55,18 @@ def update(success_story_id):
   
   return render_template('create_story.html', title='Updating', form=form)
 
+# Delete a success story
+@success_stories.route('/<int:success_story_id>/delete', methods=["GET", "POST"])
+@login_required
+def delete(success_story_id):
 
+  success_story = SuccessStory.query.get_or_404(success_story_id)
+  if success_story.author != current_user:
+    abort(403)
+  
+  db.session.delete(success_story)
+  db.session.commit()
+  flash('Success Story Deleted')
+  return redirect(url_for('core.index'))
 
 
