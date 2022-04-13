@@ -27,7 +27,9 @@ def create():
 @success_stories.route('/<int:success_story_id>')
 def success_story(success_story_id):
   success_story = SuccessStory.query.get_or_404(success_story_id)
-  return render_template('success_story.html', title=success_story.title, date=success_story.date, story=success_story)
+  return render_template(
+    'success_story.html', title=success_story.title, date=success_story.date, story=success_story
+  )
 
 
 

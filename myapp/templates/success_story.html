@@ -1,0 +1,19 @@
+{% extend 'base.html' %}
+{% block content %}
+
+<div class="story">
+  <h1>{{story.title}}</h1>
+  <h2>Author: {{story.author.username}}</h2>
+  <h3>Published: {{story.date.strftime('%B %d, %Y')}}</h3>
+  <p>{{story.story}}</p>
+  {% if story.author == current_user %}
+  <div>
+    
+      <button>Update</button>
+    
+    
+      <button>Delete</button>
+    
+
+  </div>
+</div>
