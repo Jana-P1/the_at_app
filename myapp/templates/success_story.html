@@ -1,9 +1,9 @@
-{% extend 'base.html' %}
+{% extends 'base.html' %}
 {% block content %}
 
 <div class="story">
-  <h1>{{story.title}}</h1>
-  <h2>Author: {{story.author.username}}</h2>
+  <h1>{{story.author.username}}'s Already There</h1>
+  <h2>{{story.title}}</h1>
   <h3>Published: {{story.date.strftime('%B %d, %Y')}}</h3>
   <p>{{story.story}}</p>
   {% if story.author == current_user %}
