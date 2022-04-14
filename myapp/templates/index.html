@@ -8,8 +8,12 @@
         {% for story in success_stories.items %}
         <div>
             <h1>{{story.title}}</h1>
-            <h2>Creator: {{story.author.username}}</h2>
-            <h3>Published: {{story.date.strftime('%Y - %m')}}</h3>
+            <h2>Creator: 
+                <a href="{{url_for('users.user_stories', username=story.author.username)}}">
+                    {{story.author.username}}
+                </a>
+            </h2>
+            <p>Published: {{story.date.strftime('%B %d, %Y')}}</p>
             <a href="{{url_for('success_stories.success_story', success_story_id=story.id)}}">Read this story</a>
             
         </div>
