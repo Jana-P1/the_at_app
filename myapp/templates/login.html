@@ -3,9 +3,10 @@
    
 <form method="POST">
     {{form.hidden_tag()}}
-    {{form.email.label}}{{form.email}}<br>
-    {{form.password.label}}{{form.password}}<br>
-    {{form.submit()}}
+    {{form.email.label(class="form-control-label")}}
+    {{form.email(class="form-control form-control-lg")}}<br>
+    {{form.password.label(class="form-control-label")}}{{form.password(class="form-control form-control-lg")}}<br>
+    {{form.submit(class="btn btn-outline-info")}}
 
 </form>
 {% endblock %}
