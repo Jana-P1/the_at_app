@@ -3,20 +3,22 @@
   <div class="container">
     <div class="jumbotron">
       <div align="center">      
-        <h1>Welcome to {{user.username}}'s successes</h1>
+        <h1 class="heading">Welcome to {{user.username}}'s successes</h1>
       </div>
     </div>
     {% for story in success_stories.items %}
-    <h2>
-      <a href="{{url_for('success_stories.success_story', success_story_id=story.id)}}">{{story.title}}</a>
-    </h2>
-    Written By: <a href="{{url_for('users.user_stories', username=story.author.username)}}">{{story.author.username}}</a>
+    <div class="story-container">
+      <h2>
+        <a href="{{url_for('success_stories.success_story', success_story_id=story.id)}}">{{story.title}}</a>
+      </h2>
+      <p>Written By: {{story.author.username}}</p>
 
-    <p class="text-muted">
+      <p class="text-muted">
       Published On: {{story.date.strftime("%B %d, %Y")}}
-    </p>
-    <br>
-    <p>{{story.story}}</p>
+      </p>
+      <br>
+      <p>{{story.story}}</p>
+    </div>
     <br>
     {% endfor %}
   </div>

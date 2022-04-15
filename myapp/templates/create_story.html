@@ -2,15 +2,16 @@
 {% block content %}
     <form method="POST">
       {{form.hidden_tag()}}
-      <div class="label-input">
-        {{form.title.label}}
-        {{form.title}}
+      <div class="form-group">
+        {{form.title.label(class='form-control-lg')}}
+        {{form.title (class="form-control form-control-lg")}}
       </div>
-      <div class="label-input">
-        {{form.story.label}}{{form.story}}
+      <div class="form-group">
+        {{form.story.label(class='form-control-lg')}}
+        {{form.story(class="form-control form-control-lg")}}
       </div> 
       <div class="submit-btn">
-        {{form.submit()}}
+        {{form.submit(class="btn btn-info")}}
       </div>
     </form>
 {% endblock %}

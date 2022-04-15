@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="story">
-  <h1>{{story.author.username}}'s Already There</h1>
-  <h2>{{story.title}}</h1>
-  <h3>Published: {{story.date.strftime('%B %d, %Y')}}</h3>
-  <p>{{story.story}}</p>
-  {% if story.author == current_user %}
-  <div>
-    <form 
-      action="{{url_for('success_stories.update', success_story_id=story.id)}}"
-    >
-      <button>Update</button>
-    </form>
-    <form 
-      action="{{url_for('success_stories.delete', success_story_id=story.id)}}" method='POST' 
-    >
-      <input type="submit" value="Delete">
-    </form>
+
+  <h1 class="heading">{{story.author.username}}'s Already There</h1>
+  <div class="story-container">
+    <h2>{{story.title}}</h1>
+    <h3>Published: {{story.date.strftime('%B %d, %Y')}}</h3>
+    <p>{{story.story}}</p>
+    {% if story.author == current_user %}
+      <form 
+        action="{{url_for('success_stories.update', success_story_id=story.id)}}"
+      >
+        <button>Update</button>
+      </form>
+      <form 
+        action="{{url_for('success_stories.delete', success_story_id=story.id)}}" method='POST' 
+      >
+        <input type="submit" value="Delete">
+      </form>
+  </div>
     
     
     

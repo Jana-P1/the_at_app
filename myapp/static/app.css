@@ -1,3 +1,70 @@
-span {
-  font-style: italic;
+html {
+  box-sizing: border-box
+}
+
+/* The Universal Selector */
+*, /* All elements*/
+*::before, /* All ::before pseudo-elements */
+*::after { /* All ::after pseudo-elements */
+  /* height & width will now include border & padding by default
+     but can be over-ridden as needed */
+  box-sizing: inherit;
+}
+
+/* resets font size to be 62.5% of the user preference - 
+   in most browser configurations this will be 10px */
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Shadows Into Light', cursive, sans-serif;
+  margin: 0;
+}
+.heading{
+  font-size: 5.0rem;
+  font-weight: bold;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+}
+p {
+  font-size: 2.0rem;
+}
+
+.story-container {
+  margin: 20px auto;
+  border-radius: 8px;
+  padding: 5px;
+  width: 300px;
+  text-align: center;
+  background: #eae672;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+}
+.nav-link {
+  font-size: 2.5rem;
+}
+.nav-topright {
+  display: flex;
+  margin: 0 auto;
+}
+.form-control-lg {
+  font-size: 2.5rem;
+}
+.submit-btn{
+  margin: 20px;
+}
+.btn {
+  font-size: 2.5rem;
+}
+.show-story {
+  font-size: 2rem;
+}
+
+span, #sub-heading {
+  text-decoration: underline;
+}
+#tagline {
+  font-size: 2.5rem;
+  text-align: center;
 }
