@@ -17,7 +17,9 @@ Well, I have...
 The AT app helps people find their misplaced self confidence, by reminding them of their own success and greatness, to pursue the challenges that once intimidated them.
 
 ## Description/Pseudocode
-The AT app allows users to create and post their success stories. 
+The AT app allows users to create and post their success stories.
+
+[Click](https://the-at-app-jp.herokuapp.com/) to launch app.
 
 Visitors not logged in can:
 + Read the user posts on the landing page
