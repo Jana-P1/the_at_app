@@ -39,7 +39,6 @@ Once logged in, users can:
 + Create, update, and delete their own success stories
 + Read other user's success stories
 
-[ADD SCREENSHOTs HERE]
 
 ## Technologies Used
 ![Anaconda](https://img.shields.io/badge/Anaconda-%2344A833.svg?style=for-the-badge&logo=anaconda&logoColor=white)
