@@ -27,7 +27,7 @@ python3 app.py
 
 ```
 
-[Click](https://the-at-app-jp.herokuapp.com/) to launch app.
+<!-- [Click](https://the-at-app-jp.herokuapp.com/) to launch app. -->
 
 Visitors not logged in can:
 + Read the user posts on the landing page
