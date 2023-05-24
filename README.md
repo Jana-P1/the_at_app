@@ -19,6 +19,13 @@ The AT app helps people find their misplaced self confidence, by reminding them 
 ## Description/Pseudocode
 The AT app allows users to create and post their success stories.
 
+## My deployment configurations on heroku need some refactoring
+## For now, please run locally 
+```
+python3 app.py
+
+```
+
 [Click](https://the-at-app-jp.herokuapp.com/) to launch app.
 
 Visitors not logged in can:
